@@ -1,0 +1,99 @@
+# =====================================================================
+# BIKKAD WEB GAME RECORDING & YOUTUBE PIPELINE CONFIGURATION
+# BOLLYWOOD HEROES & LEGENDS EDITION
+# =====================================================================
+
+app:
+  name: "Bikkad"
+  mode: "web"
+  url: "http://127.0.0.1:8000/?mode=record&deals=1"
+  game_type: "bikkad"
+  player_name: "Chulbul Pandey" # Default hero name
+  player_names:
+    - "Chulbul Pandey"
+    - "Don"
+    - "Veeru"
+    - "Munna Bhai"
+    - "Pushpa Raj"
+    - "Kabir Singh"
+    - "Mogambo"
+    - "Baazigar"
+    - "Bajirao"
+    - "Sultan"
+  play_duration_seconds: 300 # Max timeout: 5 mins (exits early as soon as match ends)
+  deals_target: 1
+  play_until_match_over: true
+  turn_delay_ms: 1200
+  auto_start_match: true
+
+recorder:
+  # Choose backend: 'playwright' (zero dependencies with automatic audio loopback), 'obs', or 'ffmpeg'
+  backend: "playwright"
+  resolution_width: 1920
+  resolution_height: 1080
+  fps: 60
+  output_dir: "recordings"
+  filename_template: "{app_slug}_{player_name}_{timestamp}.mp4"
+
+  # OBS Studio WebSocket settings (used if backend: 'obs')
+  obs:
+    host: "localhost"
+    port: 4455
+    password: ""
+    scene_name: ""
+
+  # FFmpeg settings (used if backend: 'ffmpeg')
+  ffmpeg:
+    ffmpeg_path: "ffmpeg"
+    video_device: "desktop"
+    audio_device: null
+    framerate: 30
+
+youtube:
+  enabled: true
+  target_channel_name: "Sp Gaming Club"
+  channel_url: "https://www.youtube.com/@sptalks9129"
+  client_secrets_file: "credentials/client_secret.json"
+  token_cache_file: "credentials/token.json"
+  privacy_status: "public" # Live public upload to Sp Gaming Club
+  title_template: "🔥 {player_name} Ka Asli Tash Showdown! Bollywood Style {app_name} | Sp Gaming Club"
+  title_templates:
+    - "🔥 {player_name} Ka Asli Tash Showdown! Bollywood Style {app_name} | Sp Gaming Club"
+    - "🕶️ {player_name} Ko Pakadna Mushkil Hi Nahi... {app_name} Khel Mein Dhamaka | Sp Gaming Club"
+    - "👑 Rishtey Mein Toh Hum Baap Lagte Hain: {player_name} Ka Hukum Chalega! | Sp Gaming Club"
+    - "🎬 {player_name} vs Bollywood Gang: Sholay Tash Maha-Muqabla | Sp Gaming Club"
+    - "💥 {player_name} Ka Dabangg Card Match! 13-Trick {app_name} Thriller | Sp Gaming Club"
+    - "🃏 {player_name} Jhukega Nahi! Royal Desi Card Game Clash | Sp Gaming Club"
+    - "🌟 Mogambo Khush Hua! {player_name} Ka Shaandaar Double Sir Sweep | Sp Gaming Club"
+    - "⚡ {player_name} Ka 16 Aane Ka Khel! High Voltage Bollywood {app_name} | Sp Gaming Club"
+  description_template: |
+    🎬 Family-friendly Bollywood comedy & strategy gameplay of {app_name} ({game_title})!
+    Starring {player_name} in a fun friendly match with computer AI opponents on Sp Gaming Club.
+
+    🔴 SUBSCRIBE TO SP GAMING CLUB:
+    👉 https://www.youtube.com/@sptalks9129
+
+    🎮 Game: {app_name} ({game_title})
+    🌟 Starring: {player_name} & Bollywood Computer AI Bots
+    🕹️ Genre: Traditional Indian Strategy Board Game (Free Computer AI Simulation)
+    🏆 Mode: 100% Virtual Score Only • Casual Family Entertainment
+    👑 Created by: Sobha IT Solutions
+    📅 Session Date: {date}
+
+    #spgamingclub #sptalks9129 #bikkad #bollywoodgaming #strategygame #boardgame #familygaming #gaming #60fps
+  tags:
+    - "Sp Gaming Club"
+    - "sptalks9129"
+    - "SP Gaming"
+    - "Bikkad"
+    - "Bollywood Gaming"
+    - "Strategy Game"
+    - "Family Board Game"
+    - "Traditional Games"
+    - "Casual Gaming"
+    - "Computer AI"
+    - "Gaming"
+  category_id: "20" # 20 = Gaming on YouTube
+  made_for_kids: true
+  thumbnail_path: null
+  auto_generate_thumbnail: true # Automatically generates high-impact 1280x720 thumbnail

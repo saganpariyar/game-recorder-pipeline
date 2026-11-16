@@ -1,0 +1,56 @@
+# =====================================================================
+# GENERIC APP / GAME CONFIGURATION TEMPLATE
+# Use this template to record and upload any game or application!
+# =====================================================================
+
+app:
+  name: "My Awesome Game"
+  mode: "web" # 'web', 'desktop', 'emulator', or 'manual'
+  url: "https://example.com/game"
+  window_title: "My Game Window"
+  game_type: "standard"
+  player_name: "Gamer123"
+  play_duration_seconds: 60
+  turn_delay_ms: 1000
+  auto_start_match: true
+
+recorder:
+  # Choose: 'playwright', 'obs', 'ffmpeg', or 'mock'
+  backend: "playwright"
+  resolution_width: 1920
+  resolution_height: 1080
+  fps: 60
+  output_dir: "recordings"
+  filename_template: "{app_slug}_{timestamp}.mp4"
+
+  obs:
+    host: "localhost"
+    port: 4455
+    password: ""
+    scene_name: ""
+
+  ffmpeg:
+    ffmpeg_path: "ffmpeg"
+    video_device: "desktop"
+    audio_device: null
+    framerate: 30
+
+youtube:
+  enabled: true
+  client_secrets_file: "credentials/client_secret.json"
+  token_cache_file: "credentials/token.json"
+  privacy_status: "unlisted" # 'private', 'unlisted', or 'public'
+  title_template: "{app_name} Gameplay Walkthrough ({date})"
+  description_template: |
+    Gameplay footage of {app_name}.
+    Recorded automatically on {date}.
+
+    #gaming #gameplay
+  tags:
+    - "Gaming"
+    - "Gameplay"
+    - "Walkthrough"
+  category_id: "20"
+  made_for_kids: true
+  thumbnail_path: null
+

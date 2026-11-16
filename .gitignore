@@ -1,0 +1,17 @@
+# Virtual Environment
+.venv/
+__pycache__/
+*.pyc
+
+# Recordings & Video Files
+recordings/
+*.mp4
+*.webm
+*.mkv
+
+# Secrets & YouTube OAuth tokens
+credentials/token.json
+credentials/client_secret.json
+credentials/*.json
+!credentials/README.md
+

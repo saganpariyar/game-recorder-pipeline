@@ -1,0 +1,20 @@
+# Configuration & Data Validation
+pyyaml>=6.0
+pydantic>=2.0
+
+# Stage 1: Gameplay & Control
+playwright>=1.40.0
+pyautogui>=0.9.54
+pillow>=10.0.0
+
+# Stage 2: Screen/Audio Recording
+obs-websocket-py>=1.0
+
+# Stage 3: YouTube Data API v3 Upload
+google-api-python-client>=2.100.0
+google-auth-oauthlib>=1.1.0
+google-auth-httplib2>=0.1.1
+
+# CLI & UX
+rich>=13.0.0
+

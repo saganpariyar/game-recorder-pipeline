@@ -1,0 +1,55 @@
+# =====================================================================
+# BIKKAD ANDROID EMULATOR / DESKTOP APP RECORDING CONFIGURATION
+# =====================================================================
+
+app:
+  name: "Bikkad Android App"
+  mode: "desktop"
+  window_title: "Android Emulator"
+  game_type: "bikkad"
+  player_name: "Mobile Player"
+  play_duration_seconds: 60
+  turn_delay_ms: 1500
+  auto_start_match: false
+
+recorder:
+  # Desktop games typically use OBS Studio WebSocket or FFmpeg screen grab
+  backend: "obs"
+  resolution_width: 1920
+  resolution_height: 1080
+  fps: 60
+  output_dir: "recordings"
+  filename_template: "{app_slug}_{timestamp}.mp4"
+
+  obs:
+    host: "localhost"
+    port: 4455
+    password: ""
+    scene_name: "Emulator Scene"
+
+  ffmpeg:
+    ffmpeg_path: "ffmpeg"
+    video_device: "desktop"
+    audio_device: null
+    framerate: 30
+
+youtube:
+  enabled: true
+  client_secrets_file: "credentials/client_secret.json"
+  token_cache_file: "credentials/token.json"
+  privacy_status: "unlisted"
+  title_template: "Bikkad Mobile Gameplay on Android ({date})"
+  description_template: |
+    Mobile gameplay recording of {app_name}.
+    Played on Android Emulator.
+
+    #bikkad #androidgames #cardgame
+  tags:
+    - "Bikkad"
+    - "Android Gaming"
+    - "Card Game"
+    - "Mobile Gameplay"
+  category_id: "20"
+  made_for_kids: true
+  thumbnail_path: null
+
